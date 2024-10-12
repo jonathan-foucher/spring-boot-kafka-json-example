@@ -46,6 +46,7 @@ class MovieServiceTest {
 
     @BeforeEach
     void init() {
+        listAppender.list.clear();
         listAppender.start();
         log.addAppender(listAppender);
     }
