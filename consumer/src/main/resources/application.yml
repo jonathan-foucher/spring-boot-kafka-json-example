@@ -1,0 +1,15 @@
+spring:
+  kafka:
+    consumer:
+      key-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      group-id: movie-consumer
+      bootstrap-servers: localhost:9093
+      topic-name: kafka_example_movie_json
+      properties.spring.json:
+        key.default.type: com.jonathanfoucher.kafkaconsumer.data.dto.MovieKey
+        value.default.type: com.jonathanfoucher.kafkaconsumer.data.dto.MovieValue
+    listener:
+      ack-mode: manual_immediate
