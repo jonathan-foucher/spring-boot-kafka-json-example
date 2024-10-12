@@ -16,6 +16,8 @@ public class MovieService {
     @KafkaListener(topics = "#{'${spring.kafka.consumer.topic-name}'}")
     public void consumeMovie(ConsumerRecord<MovieKey, MovieValue> consumerRecord, Acknowledgment ack) {
         log.info("Received record: key {} and value {}", consumerRecord.key(), consumerRecord.value());
+        // uncomment to test the exponential error handler
+        // if (true) throw new RuntimeException();
         ack.acknowledge();
     }
 }

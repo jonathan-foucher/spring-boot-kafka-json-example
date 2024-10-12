@@ -13,3 +13,8 @@ spring:
         value.default.type: com.jonathanfoucher.kafkaconsumer.data.dto.MovieValue
     listener:
       ack-mode: manual_immediate
+
+kafka-consumer:
+  retry-initial-interval: 1000
+  retry-multiplier: 2
+  retry-max-interval: 300000
