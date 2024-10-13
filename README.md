@@ -28,7 +28,6 @@ Save a movie
 curl --request POST \
   --url http://localhost:8090/kafka-producer/movies \
   --header 'Content-Type: application/json' \
-  --header 'User-Agent: insomnium/0.2.3-a' \
   --data '{
 	"id": 26,
 	"title": "Some movie title",
@@ -39,6 +38,5 @@ curl --request POST \
 Delete a movie
 ```
 curl --request DELETE \
-  --url http://localhost:8090/kafka-producer/movies/26 \
-  --header 'User-Agent: insomnium/0.2.3-a'
+  --url http://localhost:8090/kafka-producer/movies/26
 ```
