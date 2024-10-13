@@ -59,6 +59,7 @@ services:
     entrypoint: [ '/bin/sh', '-c' ]
     command: |
       "
+      cub kafka-ready -b kafka:9092 1 60
       echo -e 'Creating kafka topics'
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic kafka_example_movie_json --replication-factor 1 --partitions 6
       "
@@ -87,8 +88,7 @@ services:
         reservations:
           memory: 256M
     depends_on:
-      kafka:
-        condition: service_healthy
+      - kafka
 
 networks:
   kafka:
